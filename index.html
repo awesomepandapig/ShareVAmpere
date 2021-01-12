@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N40FWMP9KE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-N40FWMP9KE');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Share vs. 3070</title>
+    <title>Share vs. Ampere</title>
     <script src="index.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="main.css">
@@ -16,7 +25,14 @@
     <link rel="manifest" href="site.webmanifest">
 </head>
 <body>
-    <iframe onload="propogate();" id="data-frame" src="https://fcc-stockchecker.glitch.me//api/stock-prices?ticker1=NVDA" frameborder="0"></iframe>
+    <div id="select-div">
+        <select id="card-select" onchange="propogate();">
+            <option value="3060Ti">RTX 3060 Ti</option>
+            <option value="3070">RTX 3070</option>
+            <option value="3080">RTX 3080</option>
+            <option value="3090">RTX 3090</option>
+        </select>
+    </div>
     <div id="container">
         <div class="card">
             <h2>Share of NVIDIA</h2>
@@ -24,13 +40,16 @@
             <p id="price" class="prices">$</p>
         </div>
         <div class="card">
-            <h2>RTX 3070</h2>
-            <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3070/geforce-rtx-3070-shop-630-d@2x.png" alt="rtx-3070-gpu">
-            <p id="price-card" class="prices">$499.99</p>
+            <h2 id="card-name">RTX 3060 Ti</h2>
+            <img class="card-img" id="3060Ti-img" src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3060-ti/geforce-rtx-3060-Ti-shop-600-p@2x.png" alt="rtx-3060Ti-gpu">
+            <img class="card-img" id="3070-img" src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3070/geforce-rtx-3070-shop-630-d@2x.png" alt="rtx-3070-gpu">
+            <img class="card-img" id="3080-img" src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3080/geforce-rtx-3080-shop-630-d@2x.png" alt="rtx-3080-gpu">
+            <img class="card-img" id="3090-img" src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-630-d@2x.png" alt="rtx-3090-gpu">
+            <p id="price-card" class="prices">$399.99</p>
         </div>
     </div>
     <div id="more-or-less-div">
-        <p style="text-align: center;">One share of NVIDIA is worth <span id="dollar-amt-span">$</span><span id="more-or-less-span"></span> than an RTX 3070</p>
+        <p style="text-align: center;">One share of NVIDIA is worth <span id="dollar-amt-span">$</span><span id="more-or-less-span"></span> than an <span id="selected-card"></span></p>
     </div>
     <footer id="footer">
         Made by <a id="made-by-link" href="https://github.com/awesomepandapig" target="_blank" rel="noopener">awesomepandapig</a>
