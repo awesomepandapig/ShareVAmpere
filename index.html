@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share vs. 3070</title>
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500,600&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+</head>
+<body>
+    <iframe onload="propogate();" id="data-frame" src="https://fcc-stockchecker.glitch.me//api/stock-prices?ticker1=NVDA" frameborder="0"></iframe>
+    <div id="container">
+        <div class="card">
+            <h2>Share of NVIDIA</h2>
+            <img src="NVIDIA-Logo.png" alt="nvidia-logo">
+            <p id="price" class="prices">$</p>
+        </div>
+        <div class="card">
+            <h2>RTX 3070</h2>
+            <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3070/geforce-rtx-3070-shop-630-d@2x.png" alt="rtx-3070-gpu">
+            <p id="price-card" class="prices">$499.99</p>
+        </div>
+    </div>
+    <div id="more-or-less-div">
+        <p style="text-align: center;">One share of NVIDIA is worth <span id="dollar-amt-span">$</span><span id="more-or-less-span"></span> than an RTX 3070</p>
+    </div>
+    <footer id="footer">
+        Made by <a id="made-by-link" href="https://github.com/awesomepandapig" target="_blank" rel="noopener">awesomepandapig</a>
+      </footer>
+</body>
+</html>
